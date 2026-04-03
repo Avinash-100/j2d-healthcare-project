@@ -325,5 +325,6 @@
             "medallion-architecture",
             "weekly-ingestion"
         ]
-    }
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
 }
