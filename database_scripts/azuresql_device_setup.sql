@@ -10,9 +10,6 @@
 -- STEP 1: Create the device_events table
 -- (Database j2d_device_db is created in Azure Portal - no CREATE DATABASE in Azure SQL)
 
--- Switch to your MySQL database first
-USE j2d_hospital_db;
-
 DROP TABLE IF EXISTS dbo.device_events;
 
 CREATE TABLE dbo.device_events (
@@ -88,8 +85,9 @@ INSERT INTO dbo.device_events (hospital_id, device_id, device_type, total_units,
 -- CREATE USER adf_device_reader FOR LOGIN adf_device_reader;
 -- GRANT SELECT ON dbo.device_events TO adf_device_reader;
 
--- For verification, MySQL uses LIMIT instead of TOP
-SELECT * FROM device_events LIMIT 5;
+-- STEP 5: Verify
+SELECT COUNT(*) AS total_records FROM dbo.device_events;
+SELECT TOP 5 * FROM dbo.device_events;
 
 -- ============================================================
 -- Azure SQL Free Tier Settings (use in Portal when creating):
